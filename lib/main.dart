@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project2/login_page.dart';
+import 'package:project2/log.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        scaffoldBackgroundColor: const Color(0xFF9BC9D1),
+        scaffoldBackgroundColor: const Color(0xFFA3CCD5),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -89,13 +89,29 @@ class _MyHomePageState extends State<MyHomePage> {
                 image: AssetImage("assets/positivestone.png"),
                 fit: BoxFit.fill),
           ),
+          alignment: Alignment.bottomRight,
           child: Row(
             children: [
+              Container(
+                  height: 80.0,
+                  width: 250.0,
+                  color: const Color(0x88EFC48C),
+                  padding: EdgeInsets.all(10),
+                  margin: EdgeInsets.fromLTRB(0, 0, 45, 0),
+                  child: const Text(
+                    'The Image of the day\n' "Positive Stone",
+                    softWrap: true,
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                    textAlign: TextAlign.center,
+                  ),
+              ),
+
               Transform.scale(
-                scale: 3,
+                scale: 2,
                 child: IconButton(
-                  alignment: Alignment.bottomCenter,
-                  onPressed: (){},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const logboxscreen()));
+                  },
                   icon: const Icon(Icons.description),
                 ),
               ),
